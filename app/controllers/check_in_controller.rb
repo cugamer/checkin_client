@@ -1,15 +1,16 @@
 class CheckInController < ApplicationController
-  def checkInPage
-    
+  def new
+    @checkIn = ""
   end
 
 
-  def regCheckin
+  def create
+    redirect_to action: 'new'
   end
 
   private
   	def check_in_params
-  		params.require().permit()
+  		params.require(:new).permit(:lattitude)
 
   	end
 end
