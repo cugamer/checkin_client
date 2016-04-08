@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lattitude: 9.99
+  hemi_n_s: MyString
+  longitude: 9.99
+  hemi_e_w: MyString
+  client_id: 1
+
+two:
+  lattitude: 9.99
+  hemi_n_s: MyString
+  longitude: 9.99
+  hemi_e_w: MyString
+  client_id: 1

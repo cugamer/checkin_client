@@ -4,5 +4,7 @@ class Client < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :locations
+
   validates :business_name, presence: true, length: {maximum: 100}
 end

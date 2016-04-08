@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'locations/new'
+
+  get 'locations/create'
+
   root 'static#home'
 
   devise_for :clients
