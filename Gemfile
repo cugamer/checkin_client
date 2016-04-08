@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Provide support for simplified HTTP requests
 gem 'httparty', '~> 0.13.7'
+# Devise used for user account management
+gem 'devise', '~> 3.5.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
