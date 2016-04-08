@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  get 'locations/new'
+  get 'locations/new', to: 'locations#new'
 
-  get 'locations/create'
+  post 'locations/create', to: 'locations#create'
 
   root 'static#home'
 
   devise_for :clients
   post 'check_in', to: 'check_in#create'
   get 'check_in', to: 'check_in#new'
+
+  # get 'create_location', to: 'location#new'
+  # post 'create_location', to: 'location#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
