@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post 'check_in/regCheckin'
+  get 'check_in/checkInPage'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
