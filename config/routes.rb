@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'static#home'
+
   devise_for :clients
   post 'check_in', to: 'check_in#create'
   get 'check_in', to: 'check_in#new'
