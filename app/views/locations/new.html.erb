@@ -1,2 +1,27 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<h1>Register your business location</h1>
+
+<%= form_for :locations, url: locations_create_path do |f| %>
+	<div>
+		<%= f.label :lattitude %>
+		<%= f.text_field :lattitude %>
+	</div>
+
+	<div>
+		<%= f.label "Northern or Southern Hemipshere?" %>
+		<%= f.text_field :hemi_n_s %>
+	</div>
+
+	<div>
+		<%= f.label :longitude %>
+		<%= f.text_field :longitude %>
+	</div>
+
+	<div>
+		<%= f.label "Eastern or Western Hemisphere?" %>
+		<%= f.text_field :hemi_e_w %>
+	</div>
+
+	<%= f.submit %>
+<% end %>
+
+<%= link_to "Home Page", root_path %>

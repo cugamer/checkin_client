@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20160408190830) do
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.float    "lattitude"
+    t.string   "lattitude"
     t.string   "hemi_n_s"
-    t.float    "longitude"
+    t.string   "longitude"
     t.string   "hemi_e_w"
     t.integer  "client_id"
     t.datetime "created_at", null: false

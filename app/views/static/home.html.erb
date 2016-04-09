@@ -6,4 +6,5 @@
 	<%= link_to "Sign Up", new_client_registration_path %>
 <% else %>
 	<%= link_to "Sign Out", destroy_client_session_path, method: :delete %>
+	<%= link_to "Add Business Location", locations_new_path %>
 <% end %>
