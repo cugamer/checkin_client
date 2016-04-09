@@ -1,7 +1,7 @@
 <h1>Your business locations</h1>
 
-<%= @locations %>
-
 <ul>
-
+	<% @locations.each do |loc| %>
+		<li class="location-details"><%= loc.lattitude %> <%= loc.hemi_n_s %> by <%= loc.longitude %> <%= loc.hemi_e_w %></li>
+	<% end %>
 </ul>

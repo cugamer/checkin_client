@@ -13,15 +13,18 @@ class LocationsController < ApplicationController
   	loc = client.locations.new(get_locations_params)
   	if loc.save
   		flash[:notice] = "Your new location has been recorded"
+  		redirect_to locations_new_path
   	else
+  		@errors = loc.errors.full_messages
+  		p @errors
   		flash[:alert] = "There was a problem with your new location"
+  		render locations_new_path
   	end
 
-  	redirect_to locations_new_path
   end
 
   private
   	def get_locations_params
-  		params.require(:locations).permit(:lattitude, :longitude, :hemi_n_s, :hemi_e_w)
+  		params.require(:locations).permit(:location_title, :lattitude, :longitude, :hemi_n_s, :hemi_e_w)
   	end
 end

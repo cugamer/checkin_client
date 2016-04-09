@@ -1,6 +1,18 @@
 <h1>Register your business location</h1>
 
+<% if @errors %>
+	<ul>
+		<% @errors.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	</ul>
+<% end %>
+
 <%= form_for :locations, url: locations_create_path do |f| %>
+	<div>
+	<%= f.label :location_title, "Location Name" %>
+		<%= f.text_field :location_title %>
+	</div>
 	<div>
 		<%= f.label :lattitude %>
 		<%= f.text_field :lattitude %>
