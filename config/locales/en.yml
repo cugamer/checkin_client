@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      location:
+        hemi_n_s: ""
+        hemi_e_w: ""
