@@ -17,14 +17,17 @@ class LocationsController < ApplicationController
   	# # else
   	# # 	@errors = loc.errors.full_messages
   	# # 	p @errors
-  	# # 	flash[:alert] = "There was a problem with your new location"
-    p "================================="
-   new_loc = addLocation(get_locations_params)
-   p "New loc: #{new_loc}"
-   render locations_new_path
-
-  	# end
-
+   # p "================================="
+    new_loc = addLocation(get_locations_params)
+    p "New loc: #{new_loc}"
+    if new_loc.key?("errors")
+  		flash[:alert] = "There was a problem with your new location"
+      @errors = new_loc["errors"]
+      redirect_to locations_new_path
+    else
+      flash[:notice] = "Your new location has been recorded"
+      render locations_new_path
+    end
   end
 
   private

@@ -7,11 +7,9 @@ module LocationsHelper
 
 	def addLocation(params)
 		baseUrl = "localhost:9393"
-		p "Client id: #{current_client[:id]}"
 		params['company_id'] = params['company_id'] || current_client[:id]
-		p "Params: #{params}"
 		return HTTParty.post("http://#{baseUrl}/locations", 
 			:body => params.to_json,
-			:headers => { 'Content-Type' => 'application/json' })
+			:headers => { 'Content-Type' => 'application/json' }).parsed_response
 	end
 end
