@@ -3,8 +3,7 @@ class LocationsController < ApplicationController
   end
 
   def index
-  	client_id = session["warden.user.client.key"][0][0]
-  	@locations = Client.find(client_id).locations
+   	@locations = getAllLocationsByCompanyId(current_client[:id])
   end
 
   def create
