@@ -12,4 +12,9 @@ module LocationsHelper
 			:body => params.to_json,
 			:headers => { 'Content-Type' => 'application/json' }).parsed_response
 	end
+
+	def deleteLocation(locationId)
+		baseUrl = "localhost:9393"
+		return HTTParty.delete("http://#{baseUrl}/locations/#{locationId}").parsed_response
+	end
 end
