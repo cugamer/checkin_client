@@ -7,7 +7,8 @@ module LocationsHelper
 
 	def getSpecificLocation(locID)
 		baseUrl = "localhost:9393"
-		return HTTParty.get("http://#{baseUrl}/locations/#{locID}").parsed_response["data"]
+		response = HTTParty.get("http://#{baseUrl}/locations/#{locID}").parsed_response
+		return formatResponse(response)
 	end
 
 	def addLocation(params)
@@ -22,4 +23,10 @@ module LocationsHelper
 		baseUrl = "localhost:9393"
 		return HTTParty.delete("http://#{baseUrl}/locations/#{locationId}").parsed_response
 	end
+
+	private
+		def formatResponse(rawResponse)
+			response = {"data" => {}, "error" => {}}
+			return response.merge(rawResponse)
+		end
 end

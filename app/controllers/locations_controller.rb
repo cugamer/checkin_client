@@ -25,6 +25,9 @@ class LocationsController < ApplicationController
 
   def edit
     @location = getSpecificLocation(params[:id])
+    p "-------------------"
+    p @location
+    return @location
   end
 
   private
