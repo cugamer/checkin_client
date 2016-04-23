@@ -7,8 +7,8 @@ module LocationsHelper
 
 	def getSpecificLocation(locID)
 		baseUrl = "localhost:9393"
-		response = HTTParty.get("http://#{baseUrl}/locations/#{locID}").parsed_response
-		return formatResponse(response)
+		return HTTParty.get("http://#{baseUrl}/locations/#{locID}").parsed_response["data"]
+		# return formatResponse(response)
 	end
 
 	def addLocation(params)

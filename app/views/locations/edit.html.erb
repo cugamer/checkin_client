@@ -1,18 +1,9 @@
-<h1>Edit location <%= @location["data"]["location_title"] %></h1>
+<h1>Edit location <%= @location["location_title"] %></h1>
 
-<%= form_for :location, url: locations_edit_path(@location), method: :patch do |f| %>
-	<% if !@location["error"].empty? %>
-		<div id="error-details">
-			<h2>
-			<%= pluralize(@location["error"].count, "error") %> prevented this update:
-			</h2>
-			<ul>
-			<% @location["error"].each do |key, val| %>
-				<li>
-				<%= val %>
-				</li>
-			<% end %>
-			</ul>
-		</div>
-	<% end %>
+<%= form_tag("locations/update/#{@location['id']}", method: "patch") do %>
+	<%= label_tag(:q, "Search for:") %>
+	<%= text_field_tag(:q) %>
+
+
+	<% submit_tag("Update") %>
 <% end %>
