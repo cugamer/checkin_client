@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'locations/create', to: 'locations#create'
   get 'locations/index', to: 'locations#index'
   delete 'locations/destroy/:id', to: 'locations#destroy', as: 'locations_destroy'
+  get 'locations/edit/:id', to: 'locations#edit', as: 'locations_edit'
 
   root 'static#home'
 

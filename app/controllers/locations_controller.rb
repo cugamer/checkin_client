@@ -23,6 +23,10 @@ class LocationsController < ApplicationController
     redirect_to locations_index_path
   end
 
+  def edit
+    @location = getSpecificLocation(params[:id])
+  end
+
   private
   	def get_locations_params
   		params.require(:locations).permit(:location_title, :lattitude, :longitude, :hemi_n_s, :hemi_e_w)

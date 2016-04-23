@@ -5,6 +5,11 @@ module LocationsHelper
 		return HTTParty.get("http://#{baseUrl}/locations/?company_id=#{compID}").parsed_response["data"]
 	end
 
+	def getSpecificLocation(locID)
+		baseUrl = "localhost:9393"
+		return HTTParty.get("http://#{baseUrl}/locations/#{locID}").parsed_response["data"]
+	end
+
 	def addLocation(params)
 		baseUrl = "localhost:9393"
 		params['company_id'] = params['company_id'] || current_client[:id]
