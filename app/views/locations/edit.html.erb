@@ -3,26 +3,26 @@
 <%= form_for :locations, url: locations_update_path, method: "patch" do |f| %>
 	<div>
 	<%= f.label :location_title, "Location Name", class: "loc-form-label" %>
-		<%= f.text_field :location_title, class: "loc-form-field" %>
+		<%= f.text_field :location_title, class: "loc-form-field", value: @location["location_title"] %>
 	</div>
 	<div>
 		<%= f.label :lattitude, class: "loc-form-label" %>
-		<%= f.text_field :lattitude, class: "loc-form-field" %>
+		<%= f.text_field :lattitude, class: "loc-form-field", value: @location["lattitude"] %>
 	</div>
 
 	<div>
 		<%= f.label "Northern or Southern Hemipshere?", class: "loc-form-label"%>
-		<%= f.text_field :hemi_n_s, class: "loc-form-field" %>
+		<%= f.text_field :hemi_n_s, class: "loc-form-field", value: @location["hemi_n_s"] %>
 	</div>
 
 	<div>
 		<%= f.label :longitude, class: "loc-form-label" %>
-		<%= f.text_field :longitude, class: "loc-form-field" %>
+		<%= f.text_field :longitude, class: "loc-form-field", value: @location["longitude"] %>
 	</div>
 
 	<div>
 		<%= f.label "Eastern or Western Hemisphere?", class: "loc-form-label" %>
-		<%= f.text_field :hemi_e_w, class: "loc-form-field" %>
+		<%= f.text_field :hemi_e_w, class: "loc-form-field", value: @location["hemi_e_w"] %>
 	</div>
 
 	<%= f.submit %>

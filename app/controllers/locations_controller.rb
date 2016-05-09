@@ -28,8 +28,13 @@ class LocationsController < ApplicationController
   end
 
   def update
-    updateLocation(params[:id], get_locations_params)
-    redirect_to locations_index_path
+    updated_loc = updateLocation(params[:id], get_locations_params)
+    if updated_loc["error"]
+      @location = getSpecificLocation(params[:id])
+      render :edit
+    else
+      redirect_to locations_index_path
+    end
   end
 
   private
