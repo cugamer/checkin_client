@@ -1,5 +1,13 @@
 <h1>Edit location <%= @location["location_title"] %></h1>
 
+<% if flash[:error] %>
+	<ul>
+	<% flash[:error].each do |key, val| %>
+		<li><%= val[0].capitalize %></li>
+	<% end %>
+	</ul>
+<% end %>
+
 <%= form_for :locations, url: locations_update_path, method: "patch" do |f| %>
 	<div>
 	<%= f.label :location_title, "Location Name", class: "loc-form-label" %>
