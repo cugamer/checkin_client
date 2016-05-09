@@ -3,7 +3,7 @@
 <% if flash[:error] %>
 	<ul>
 	<% flash[:error].each do |key, val| %>
-		<li><%= val[0].capitalize %></li>
+		<li><%= "#{key.capitalize} #{val[0]}" %></li>
 	<% end %>
 	</ul>
 <% end %>
