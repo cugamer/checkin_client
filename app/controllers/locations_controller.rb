@@ -31,9 +31,6 @@ class LocationsController < ApplicationController
     updated_loc = updateLocation(params[:id], get_locations_params)
     if updated_loc["error"]
       flash[:error] = updated_loc["error"]["reasons"]
-      p flash[:error]
-      p "----------------------------------"
-      p updated_loc["error"]["reasons"]
       @location = getSpecificLocation(params[:id])
       render :edit
     else
