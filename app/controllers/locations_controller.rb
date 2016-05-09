@@ -28,7 +28,8 @@ class LocationsController < ApplicationController
   end
 
   def update
-
+    updateLocation(params[:id], get_locations_params)
+    redirect_to locations_index_path
   end
 
   private

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'locations/new', to: 'locations#new'
   post 'locations/create', to: 'locations#create'
-  patch 'loctions/update/:id', to: 'locations#update'
+  patch 'loctions/update/:id', to: 'locations#update', as: 'locations_update'
   get 'locations/index', to: 'locations#index'
   delete 'locations/destroy/:id', to: 'locations#destroy', as: 'locations_destroy'
   get 'locations/edit/:id', to: 'locations#edit', as: 'locations_edit'
