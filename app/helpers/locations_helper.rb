@@ -24,6 +24,13 @@ module LocationsHelper
 		return HTTParty.delete("http://#{baseUrl}/locations/#{locationId}").parsed_response
 	end
 
+	def updateLocation(locationId, params)
+		baseUrl = "localhost:9393"
+		return HTTParty.put("http://#{baseUrl}/locations/#{locationId}",
+			:body => params.to_json,
+			:headers => { 'Content-Type' => 'application/json' }).parsed_response
+	end
+
 	private
 		def formatResponse(rawResponse)
 			response = {"data" => {}, "error" => {}}
