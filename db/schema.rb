@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409163958) do
+ActiveRecord::Schema.define(version: 20160510203742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 20160409163958) do
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.string   "lattitude"
     t.string   "hemi_n_s"
-    t.string   "longitude"
     t.string   "hemi_e_w"
     t.integer  "client_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "location_title"
+    t.float    "lattitude"
+    t.float    "longitude"
   end
 
 end
