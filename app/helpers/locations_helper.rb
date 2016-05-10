@@ -31,6 +31,10 @@ module LocationsHelper
 			:headers => { 'Content-Type' => 'application/json' }).parsed_response
 	end
 
+	def getGPSCoords(address)
+		return Geocoder.coordinates(address)
+	end
+
 	private
 		def formatResponse(rawResponse)
 			response = {"data" => {}, "error" => {}}
