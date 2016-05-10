@@ -7,10 +7,22 @@ class LocationsController < ApplicationController
   end
 
   def create
-    new_loc = addLocation(get_locations_params)
-    if new_loc.key?("errors")
+    new_loc = get_locations_params
+    address = "#{new_loc[:street_addy]} #{new_loc[:city]} #{new_loc[:state]} #{new_loc[:zip_code]}"
+    gps_coords = getGPSCoords(address)
+    p address
+    p gps_coords
+    p "----------------------------------------"
+    submitted_loc = addLocation({
+      :location_title => new_loc[:location_title],
+      :lattitude => gps_coords[0],
+      :longitude => gps_coords[1],
+      :hemi_n_s => "n",
+      :hemi_e_w => "w"
+    })
+    if submitted_loc.key?("errors")
   		flash[:alert] = "There was a problem with your new location"
-      @errors = new_loc["errors"]
+      @errors = submitted_loc["errors"]
       render locations_new_path
     else
       flash[:notice] = "Your new location has been recorded"
@@ -40,6 +52,6 @@ class LocationsController < ApplicationController
 
   private
   	def get_locations_params
-  		params.require(:locations).permit(:location_title, :lattitude, :longitude, :hemi_n_s, :hemi_e_w)
+  		params.require(:locations).permit(:location_title, :street_addy, :city, :state, :zip_code)
   	end
 end
