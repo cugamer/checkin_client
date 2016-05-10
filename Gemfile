@@ -26,7 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty', '~> 0.13.7'
 # Devise used for user account management
 gem 'devise', '~> 3.5.6'
-
+# Geocoder used to convert between address and GPS coords
+gem 'geocoder', '~> 1.3.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
