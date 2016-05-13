@@ -13,20 +13,25 @@ class LocationsController < ApplicationController
     p address
     p gps_coords
     p "----------------------------------------"
-    submitted_loc = addLocation({
-      :location_title => new_loc[:location_title],
-      :lattitude => gps_coords[0],
-      :longitude => gps_coords[1],
-      :hemi_n_s => "n",
-      :hemi_e_w => "w"
-    })
-    if submitted_loc.key?("errors")
-  		flash[:alert] = "There was a problem with your new location"
-      @errors = submitted_loc["errors"]
-      render locations_new_path
+    if gps_coords
+      submitted_loc = addLocation({
+        :location_title => new_loc[:location_title],
+        :lattitude => gps_coords[0],
+        :longitude => gps_coords[1],
+        :hemi_n_s => "n",
+        :hemi_e_w => "w"
+      })
+      if submitted_loc.key?("errors")
+    		flash[:alert] = "There was a problem with your new location"
+        @errors = submitted_loc["errors"]
+        render locations_new_path
+      else
+        flash[:notice] = "Your new location has been recorded"
+        redirect_to locations_new_path
+      end
     else
-      flash[:notice] = "Your new location has been recorded"
-      redirect_to locations_new_path
+      flash[:alert] = "Address entered not found"
+      render locations_new_path
     end
   end
 
