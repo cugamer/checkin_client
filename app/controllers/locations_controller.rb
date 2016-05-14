@@ -10,9 +10,7 @@ class LocationsController < ApplicationController
     new_loc = get_locations_params
     address = "#{new_loc[:street_addy]} #{new_loc[:city]} #{new_loc[:state]} #{new_loc[:zip_code]}"
     gps_coords = getGPSCoords(address)
-    p address
-    p gps_coords
-    p "----------------------------------------"
+
     if gps_coords
       submitted_loc = addLocation({
         :location_title => new_loc[:location_title],
@@ -41,7 +39,10 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    @location = getSpecificLocation(params[:id])
+    gps_coords = getSpecificLocation(params[:id])
+    p gps_coords
+    p "----------------------------------------"
+    @location = gps_coords
   end
 
   def update

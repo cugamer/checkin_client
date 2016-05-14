@@ -35,6 +35,11 @@ module LocationsHelper
 		return Geocoder.coordinates(address)
 	end
 
+	def getAddyByGPS(lat_long)
+		p lat_long
+		return Geocoder.search("#{lat_long[:latitude]}, #{lat_long[:longitude]}").first.address
+	end
+
 	private
 		def formatResponse(rawResponse)
 			response = {"data" => {}, "error" => {}}
