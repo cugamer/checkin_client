@@ -36,8 +36,14 @@ module LocationsHelper
 	end
 
 	def getAddyByGPS(lat_long)
-		p lat_long
-		return Geocoder.search("#{lat_long[:latitude]}, #{lat_long[:longitude]}").first.address
+		location_object = Geocoder.search("#{lat_long[:latitude]}, #{lat_long[:longitude]}").first
+		address = {}
+		address[:street_address] = location_object.street_address
+		address[:city] = location_object.city
+		address[:state] = location_object.state
+		address[:country] = location_object.country
+		address[:postal_code] = location_object.postal_code
+		return address
 	end
 
 	private
