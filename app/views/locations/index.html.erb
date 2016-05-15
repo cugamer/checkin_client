@@ -2,6 +2,6 @@
 
 <ul>
 	<% @locations.each do |loc| %>
-		<li class="location-details"><%= loc["location_title"] %> - <%= loc["lattitude"] %> <%= loc["hemi_n_s"] %> by <%= loc["longitude"] %> <%= loc["hemi_e_w"] %> - <%= link_to "Delete?", locations_destroy_path(loc["id"]), method: :delete %> - <%= link_to "Edit?", locations_edit_path(loc["id"]) %></li>
+		<li class="location-details"><%= loc["location_title"] %> - <%= loc["street_address"] %>, <%= loc["city"] %> <%= loc["state"] %> <%= loc["postal_code"] %> - <%= link_to "Delete?", locations_destroy_path(loc["id"]), method: :delete %> - <%= link_to "Edit?", locations_edit_path(loc["id"]) %></li>
 	<% end %>
 </ul>
