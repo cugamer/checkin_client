@@ -16,6 +16,10 @@ class LocationsController < ApplicationController
         :location_title => new_loc[:location_title],
         :lattitude => gps_coords[0],
         :longitude => gps_coords[1],
+        :street_address => new_loc[:street_addy],
+        :city => new_loc[:city],
+        :state => new_loc[:state],
+        :postal_code => new_loc[:zip_code],
         :hemi_n_s => "n",
         :hemi_e_w => "w"
       })
