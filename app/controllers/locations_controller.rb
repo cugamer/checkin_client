@@ -43,10 +43,7 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    gps_coords = getSpecificLocation(params[:id])
-    p gps_coords
-    p "----------------------------------------"
-    @location = gps_coords
+    @location = getSpecificLocation(params[:id])
   end
 
   def update
